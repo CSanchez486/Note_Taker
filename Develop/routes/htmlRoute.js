@@ -13,7 +13,5 @@ router.get("*", function (req,res) {
     res.send(path.join(__dirname, '.../public/index.html'));
 });
 
-
-
 // allows for the router module to be exported to other files
 module.exports = router

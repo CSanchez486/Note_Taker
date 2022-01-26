@@ -1,11 +1,6 @@
 const router = require("express").Router(); 
 // const that will be used as template for notes.html
-const dbStructure = [
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
-];
+
 
 //express router get the notes from app
 router.get("/notes", function (req, res) {

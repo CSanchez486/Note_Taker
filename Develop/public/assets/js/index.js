@@ -1,8 +1,3 @@
-
-
-const path = require('path');
-const PORT = 3001; 
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;

@@ -1,5 +1,4 @@
-const express = require("express").Router();
-const router = express.Router();
+const router = require("express").Router(); 
 // const that will be used as template for notes.html
 const dbStructure = [
     {

@@ -15,7 +15,7 @@ app.use(express.static('public'));
 app.use("/", htmlRoute);
 
 // pulls apiRoute
-app.use("/api", apiRoute);
+app.use("/api/", apiRoute);
 
 
 //starts the server

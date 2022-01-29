@@ -3,6 +3,7 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
+
 // this is being pulled from index.html
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');

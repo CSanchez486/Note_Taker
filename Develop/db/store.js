@@ -16,8 +16,24 @@ class Store {
     // notes from db.json are converted string 
     write(notes) {
         fs.writeFile("./db/db.json", json.stringify(notes));
-    }df
+    }
     
+    getNotes(){
+        // returns parsed notes
+        return this.read().then((notes)) => {
+            let readNotes;
+            // readNotes will concatenate what is returned into an array
+            try {
+                readNotes = [].concat(JSON.parse(notes));
+            // empty array returned if there is an error
+            } catch(err) {
+                readNotes = []
+            }
+            return readNotes;
+            }
+        
+        
+    }
     
     
     // get fs.getNotes > @ db.json & parse

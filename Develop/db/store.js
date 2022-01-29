@@ -2,20 +2,24 @@ const util = require("util");
 const fs = require("fs");
 
 const readFromFile = util.promisify(fs.readFile);
+const writeFromFile = util.promisify(fs.writeFile);
 
 const uuid = require("uuid/v1");
 
 //create class (Store) w/ same file name 
 class Store {
     
-    // fs will read file
+    // pulls db as a json file
     read () {
-    fs.readFile("./db/db.json", "utf8");
+        fs.readFile("./db/db.json", "utf8");
+    }
+    // notes from db.json are converted string 
+    write(notes) {
+        fs.writeFile("./db/db.json", json.stringify(notes));
+    }df
     
     
     
-    
-    // write fs.writeFile
     // get fs.getNotes > @ db.json & parse
     // add note fs.adNotes
     // remove fs.removeNotes 

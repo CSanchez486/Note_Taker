@@ -8,7 +8,7 @@ const newNote = { title, text, id: uuidv1() };
 const readFromFile = util.promisify(fs.readFile);
 const writeFromFile = util.promisify(fs.writeFile);
 
-// uuid v1 creates a version 1 with timestamp
+// uuid v1 creates a version 1 with timestamp - creating a unique indicator
 const uuid = require("uuid/v1");
 
 //create class (Store) w/ same file name 
@@ -49,6 +49,16 @@ class Store {
         .then((latestNotes) => this.write(latestNotes))
         .then(() => newNote);
     }
+     
+    // 
+    removeNote(id) {
+        //returns getNotes
+        return this.getNotes()
+        //notes are filtered into an array - if id doesn't match it is removed
+        .then((notes) => notes.filter(note.id !==id))
+        // filtered notes are then written into a new filtered note
+        .then((Notes) => this.write(filteredNotes));
+    }
 
     }
         
@@ -57,8 +67,8 @@ class Store {
     
     
     
-    // add note fs.adNotes
-    // remove fs.removeNotes 
+    
+
 
 };
 

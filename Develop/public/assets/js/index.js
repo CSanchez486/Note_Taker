@@ -1,3 +1,5 @@
+const { application } = require("express");
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -27,12 +29,21 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch('/', {
+  fetch ('/', {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
+
   });
+
+// const getNotes = () =>
+//   fetch('./', {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//   });
 
 const saveNote = (note) =>
   fetch('/api/notes', {

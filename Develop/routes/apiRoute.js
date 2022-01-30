@@ -15,14 +15,10 @@ router.post("/notes", (req, res) => {
     .catch((err) => res.status(500).json(err))
 });
     
-
-router.delete("/notes.id", (req, res) => {
-    // boolean if/else statement that will show a 500 status if response is empty
-    if (db.length != 0) {
-        res.json(true);
-    } else {
-        res.status(500).json(err);
-    }
+// boolean is used to determine if id matches url parameters
+router.delete("/notes/:id", (req, res) => {
+    store.remove(req.params.id).then(() => res.json({ok:true})
+    .catch((err) => res.status(500).json(err))
 });
 
 

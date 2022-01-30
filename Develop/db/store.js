@@ -16,11 +16,11 @@ class Store {
     
     // pulls db as a json file
     read () {
-        fs.readFile("./db/db.json", "utf8");
+        fs.readFromFile("./db/db.json", "utf8");
     }
     // notes from db.json are converted string 
     write(notes) {
-        fs.writeFile("./db/db.json", json.stringify(notes));
+        fs.writeFromFile("./db/db.json", json.stringify(notes));
     }
     
     getNotes(){

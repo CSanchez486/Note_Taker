@@ -17,7 +17,7 @@ router.post("/notes", (req, res) => {
     
 // boolean is used to determine if id matches url parameters
 router.delete("/notes/:id", (req, res) => {
-    store.remove(req.params.id).then(() => res.json({ok:true})
+    store.remove(req.params.id).then(() => res.json({ok:true}))
     .catch((err) => res.status(500).json(err))
 });
 

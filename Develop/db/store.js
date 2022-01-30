@@ -1,9 +1,14 @@
 const util = require("util");
 const fs = require("fs");
+// deconstructs parsed .json
+const { title, text } = note;
+// constructs new note using uuid
+const newNote = { title, text, id: uuidv1() };
 
 const readFromFile = util.promisify(fs.readFile);
 const writeFromFile = util.promisify(fs.writeFile);
 
+// uuid v1 creates a version 1 with timestamp
 const uuid = require("uuid/v1");
 
 //create class (Store) w/ same file name 
@@ -30,13 +35,28 @@ class Store {
                 readNotes = []
             }
             return readNotes;
-            }
+        }
+    }
+    addNote(note) {
+        // if the title & text are empty then it will throw an error message
+        if (!title||!text){
+            throw new Error ("Error: Text box cannot be blank. Please enter note to submit")
+        }
+    
+    // getNotes is invoked and turned into a newNote
+    return this.getNotes()
+        .then((notes) => [...notes, newNote])
+        .then((latestNotes) => this.write(latestNotes))
+        .then(() => newNote);
+    }
+
+    }
         
         
     }
     
     
-    // get fs.getNotes > @ db.json & parse
+    
     // add note fs.adNotes
     // remove fs.removeNotes 
 

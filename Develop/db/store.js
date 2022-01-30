@@ -25,7 +25,7 @@ class Store {
     
     getNotes(){
         // returns parsed notes
-        return this.read().then((notes)) => {
+        return this.read().then((notes) => {
             let readNotes;
             // readNotes will concatenate what is returned into an array
             try {
@@ -35,7 +35,7 @@ class Store {
                 readNotes = []
             }
             return readNotes;
-        }
+        })
     }
     addNote(note) {
         // if the title & text are empty then it will throw an error message
@@ -59,17 +59,6 @@ class Store {
         // filtered notes are then written into a new filtered note
         .then((Notes) => this.write(filteredNotes));
     }
-
-    }
-        
-        
-    }
-    
-    
-    
-    
-
-
 };
 
 

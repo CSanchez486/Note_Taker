@@ -1,12 +1,9 @@
-const { application } = require("express");
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
-// this is being pulled from index.html
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -29,21 +26,12 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch ('/', {
+  fetch('/api/notes', {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-
   });
-
-// const getNotes = () =>
-//   fetch('./', {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
 
 const saveNote = (note) =>
   fetch('/api/notes', {

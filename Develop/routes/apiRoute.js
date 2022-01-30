@@ -1,16 +1,16 @@
 const router = require("express").Router;
-const store = require("../db/dbNotes")
+const store = require("../db/store");
 
  
 router.get("/notes", (req, res) => {
-   store.getnotes().then((notes) => {
+   store.getNotes().then((notes) => {
        return res.json(notes);
    })
 });
 
-router.post("/notes", function (req, res) {
+router.post("/notes", (req, res) => {
     // body if pushed into db template if json response is received
-    db.push(req.body);
+    store.push(req.body);
     res.json(true);
 });
     
